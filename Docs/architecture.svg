@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="760" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <style>
+    .box { fill:#ffffff; stroke:#2b6cb0; stroke-width:2; rx:8; }
+    .small { font-size:12px; fill:#2d3748; }
+    .title { font-size:14px; font-weight:700; fill:#1a365d; }
+    .arrow { stroke:#2b6cb0; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
+    .note { font-size:11px; fill:#4a5568; }
+    .bg { fill:#f7fafc; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2b6cb0"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" class="bg"/>
+
+  <!-- Browser -->
+  <g transform="translate(60,40)">
+    <rect x="0" y="0" width="320" height="80" class="box"/>
+    <text x="16" y="28" class="title">Browser Utente</text>
+    <text x="16" y="48" class="small">Angular 18 · Leaflet · Chart.js</text>
+  </g>
+
+  <!-- Frontend -->
+  <g transform="translate(420,40)">
+    <rect x="0" y="0" width="360" height="120" class="box"/>
+    <text x="16" y="28" class="title">Frontend</text>
+    <text x="16" y="48" class="small">UI/UX, Mappe, Filtri, Componenti</text>
+    <text x="16" y="66" class="small">MarkerCluster · Chart.js · Auth JWT</text>
+  </g>
+
+  <!-- Backend -->
+  <g transform="translate(420,220)">
+    <rect x="0" y="0" width="360" height="140" class="box"/>
+    <text x="16" y="28" class="title">Backend</text>
+    <text x="16" y="48" class="small">Spring Boot 3 · REST API · Spring Security</text>
+    <text x="16" y="66" class="small">Upload immagini · Business Logic · JWT</text>
+    <text x="16" y="86" class="small">Endpoints: /books, /users, /nearby, /admin/stats</text>
+  </g>
+
+  <!-- Database -->
+  <g transform="translate(420,420)">
+    <rect x="0" y="0" width="360" height="120" class="box"/>
+    <text x="16" y="28" class="title">Database</text>
+    <text x="16" y="48" class="small">PostgreSQL + PostGIS (consigliato)</text>
+    <text x="16" y="66" class="small">Tabelle: users, books, locker_points, requests, views</text>
+    <text x="16" y="86" class="small">Indice spaziale GIST · GEOGRAPHY(POINT,4326)</text>
+  </g>
+
+  <!-- Storage immagini -->
+  <g transform="translate(820,220)">
+    <rect x="0" y="0" width="300" height="80" class="box"/>
+    <text x="16" y="28" class="title">Storage Immagini</text>
+    <text x="16" y="48" class="small">Volume Docker locale o S3</text>
+  </g>
+
+  <!-- Docker Compose -->
+  <g transform="translate(820,340)">
+    <rect x="0" y="0" width="300" height="80" class="box"/>
+    <text x="16" y="28" class="title">Orchestrazione</text>
+    <text x="16" y="48" class="small">Docker Compose · start-project scripts</text>
+  </g>
+
+  <!-- Arrows -->
+  <path d="M380 80 L420 80" class="arrow"/>
+  <path d="M600 160 L600 220" class="arrow"/>
+  <path d="M600 360 L600 420" class="arrow"/>
+  <path d="M780 260 L820 260" class="arrow"/>
+  <path d="M780 380 L820 380" class="arrow"/>
+
+  <!-- Notes -->
+  <text x="60" y="700" class="note">Legenda: frecce = flusso dati; JWT = autenticazione; PostGIS per query spaziali native.</text>
+  <text x="60" y="720" class="note">Consiglio: usare ST_DWithin per ricerche per raggio; fallback Haversine per MySQL.</text>
+</svg>

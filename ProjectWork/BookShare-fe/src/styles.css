@@ -1,0 +1,12 @@
+/* Stili globali dell'applicazione BookShare */
+/* Imposta il font di base (Roboto) e lo sfondo con gradiente per tutta la pagina */
+
+
+body { 
+    margin: 0; 
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    background: linear-gradient(75deg,rgb(255, 231, 213), rgb(208, 166, 136)) ;
+}
+
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

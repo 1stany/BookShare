@@ -1,0 +1,18 @@
+# IntelliJ / IDE
+.idea/
+*.iml
+.vscode/
+
+# Java / Spring
+**/target/
+build/
+*.jar
+
+# Angular / Node
+**/node_modules/
+**/.angular/
+dist/
+
+# Docker & OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,58 @@
+<div class="m-4">
+  <div id="dettagli">Dettagli oggetto</div>
+
+  <!-- CONTENITORE FLEX: copertina + tabella -->
+  <div class="d-flex gap-4 align-items-start mb-4">
+
+    <!-- Copertina (come prima) -->
+    @if (item) {
+      @if (item.cover) {
+        <div class="flex-shrink-0">
+          <img
+            [src]="item.cover"
+            [alt]="'Copertina: ' + item.name"
+            class="img-fluid"
+            style="max-width: 300px; border-radius: 8px"
+          />
+        </div>
+      }
+    }
+
+    <!-- Tabella (rimane identica, solo spostata di fianco) -->
+    <div id="table" class="flex-grow-1">
+      <table class="table table-striped-columns">
+        <tbody>
+          <tr><td>NOME:</td><td>{{ item?.name }}</td></tr>
+          <tr><td>DESCRIZIONE:</td><td>{{ item?.description }}</td></tr>
+          <tr><td>STATO:</td><td>{{ item?.activetrade }}</td></tr>
+          <tr><td>CONDIZIONE:</td><td>{{ item?.condition }}</td></tr>
+          <tr><td>COMMENTO:</td><td>{{ item?.conditionComment }}</td></tr>
+          <tr><td>CATEGORIA:</td><td>{{ item?.categoryName }}</td></tr>
+          <tr><td>CITTÀ:</td><td>{{ item?.ownerCityName }}</td></tr>
+          <tr><td>DATA:</td><td>{{ item?.creationDate }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div>
+  <span class="change">
+    <span>
+      <button id="trade" class="btn btn-secondary btn-hover2" routerLink="/last">
+        Indietro
+      </button>
+    </span>
+
+    @if (item?.activetrade) {
+      <button
+        id="trade"
+        class="btn btn-success btn-hover"
+        [routerLink]="['/trade-offer', item?.id]"
+      >
+        Scambia
+      </button>
+    }
+  </span>
+</div>

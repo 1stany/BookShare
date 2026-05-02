@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Detect OS
+OS="$(uname -s)"
+
+case "$OS" in
+    Linux*)
+        echo "Detected Linux"
+        pwsh ./start-project.ps1 2>/dev/null || ./start-project.sh
+        ;;
+    Darwin*)
+        echo "Detected macOS"
+        pwsh ./start-project.ps1 2>/dev/null || ./start-project.sh
+        ;;
+    MINGW*|MSYS*|CYGWIN*)
+        echo "Detected Windows"
+        powershell -ExecutionPolicy Bypass -File start-project.ps1
+        ;;
+    *)
+        echo "Unsupported OS: $OS"
+        exit 1
+        ;;
+esac

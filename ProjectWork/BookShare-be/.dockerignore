@@ -1,0 +1,34 @@
+# Maven
+target
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# IDE
+.idea
+*.iml
+*.ipr
+*.iws
+.vscode
+.project
+.classpath
+.settings
+
+# Git
+.git
+.gitignore
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dockerfile itself (optional)
+Dockerfile
+
+# Uploads (se non vuoi copiarli nell'immagine)
+uploads

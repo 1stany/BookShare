@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: bookshare-db
+    networks:
+      - bookshare-net
+    environment:
+      POSTGRES_USER: postgresMaster
+      POSTGRES_PASSWORD: goPostgresGo
+      POSTGRES_DB: bookshare_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./BookShare-be
+    container_name: bookshare-be
+    networks:
+      - bookshare-net
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/bookshare_db
+      - SPRING_DATASOURCE_USERNAME=postgresMaster
+      - SPRING_DATASOURCE_PASSWORD=goPostgresGo
+      # Diciamo al backend dove salvare i file dentro il container
+      - APP_UPLOAD_DIR=uploads/items
+    volumes:
+      # Mappiamo la cartella uploads del PC con quella del container
+      - ./BookShare-be/uploads:/app/uploads
+
+  frontend:
+    build: ./BookShare-fe
+    container_name: bookshare-fe
+    networks:
+      - bookshare-net
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
+networks:
+  bookshare-net:
+    driver: bridge
